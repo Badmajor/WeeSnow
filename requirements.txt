@@ -1,0 +1,5 @@
+asyncio~=3.4.3
+aiogram~=3.0.0b6
+matplotlib~=3.4.3
+requests~=2.25.1
+environs~=9.3.3
