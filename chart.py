@@ -11,7 +11,6 @@ def get_picture(name_resort: str = 'Аджигардак'):
     df = req_resort_datas(resort_list.get(name_resort))
 
     date = df['time']
-    temp_max = df['temperature_2m_max']
     temp_min = df['temperature_2m_min']
     snowfall = df['snowfall_sum']
 

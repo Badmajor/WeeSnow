@@ -7,8 +7,8 @@ from data import resort_list
 
 def req_resort_datas(coord: list[float]) -> dict:
     lat, log = coord
-    req = f'https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={log}&daily=temperature_2m_max,' \
-          f'temperature_2m_min,snowfall_sum,precipitation_probability_max&timezone=Europe%2FMoscow&past_days=3'
+    req = f'https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={log}&daily=' \
+          f'temperature_2m_min,snowfall_sum&timezone=Europe%2FMoscow&past_days=3'
     res = requests.get(req)
     return res.json().get('daily')
 
