@@ -12,4 +12,3 @@ WEBHOOK_PATH = os.environ['WEBHOOK_PATH']
 WEBHOOK_URL = f"{WEBHOOK_HOST}{WEBHOOK_PATH}"
 WEBAPP_HOST = os.environ['WEBAPP_HOST']
 WEBAPP_PORT = os.environ.get('PORT')
-
