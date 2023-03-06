@@ -42,7 +42,7 @@ async def show_chart_resort(call: CallbackQuery, callback_data: ResortCallbackFa
                                     reply_markup=start_kb())
 
 
-def register_default_cmds(router: Router):
+def register_routers(router: Router):
     router.message.register(cmd_start, Command(commands="start"))
     router.callback_query.register(show_top_resort, Text(contains='top'))
     router.callback_query.register(show_chart_resort, ResortCallbackFactory.filter())
