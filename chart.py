@@ -3,7 +3,7 @@ from io import BytesIO
 
 from aiogram import types
 
-from classes import DataBase
+from Classes import DataBase
 
 
 async def get_picture(name_resort: str = 'Аджигардак'):
