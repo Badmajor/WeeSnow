@@ -9,7 +9,7 @@ from data import resort_list
 curr_date = datetime.datetime.now()
 
 
-def req_resort_datas(coord: list[float]) -> dict:
+async def req_resort_datas(coord: list[float]) -> dict:
     lat, log = coord
     req = f'https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={log}&daily=' \
           f'temperature_2m_min,snowfall_sum&timezone=Europe%2FMoscow&past_days=3'
@@ -42,7 +42,7 @@ class DataBase:
         print('date:', date)
         for n, coo in resort_list.items():
             self.cur.execute("INSERT INTO data(datetime, resort, data) VALUES(?,?,?)",
-                             (date, n, str(req_resort_datas(coo))))
+                             (date, n, str(await req_resort_datas(coo))))
         self.conn.commit()
 
     def resort_data(self, resort: str):

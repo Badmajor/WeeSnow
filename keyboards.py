@@ -4,7 +4,7 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 from callback_data import ResortCallbackFactory
 
 
-def start_kb():
+async def start_kb():
     buttons = [
         [types.InlineKeyboardButton(text='Топ по снегу', callback_data='top')],
         [types.InlineKeyboardButton(text='Выбрать ГЛК', callback_data='choice_resort')]
@@ -13,7 +13,7 @@ def start_kb():
     return keyboard
 
 
-def keyboard_list_resort(resorts: dict, col=2):
+async def keyboard_list_resort(resorts: dict, col=2):
     builder = InlineKeyboardBuilder()
     for n, i in resorts.items():
         builder.button(

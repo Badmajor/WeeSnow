@@ -4,7 +4,7 @@ from classes import DataBase
 from data import resort_list
 
 
-def get_top_resort() -> dict:
+async def get_top_resort() -> dict:
     database = DataBase()
     dict_resort = {}
     for n, coo in resort_list.items():
@@ -14,7 +14,7 @@ def get_top_resort() -> dict:
     return dict(sorted(dict_resort.items(), key=itemgetter(1), reverse=True)[:4])
 
 
-def get_list_resort() -> dict:
+async def get_list_resort() -> dict:
     database = DataBase()
     dict_resort = {}
     for n, coo in resort_list.items():
