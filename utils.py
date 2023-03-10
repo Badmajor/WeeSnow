@@ -1,7 +1,6 @@
-import json
 from operator import itemgetter
 
-from classes import DataBase, req_resort_datas
+from classes import DataBase
 from data import resort_list
 
 
@@ -23,5 +22,3 @@ def get_list_resort() -> dict:
         dict_resort[n] = snowfall
     database.close()
     return dict_resort
-
-

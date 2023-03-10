@@ -39,7 +39,7 @@ class DataBase:
     def update_data(self):
         self.cur.execute("DELETE FROM data")
         date = curr_date.strftime('%y-%m-%d %H:%M:%S')
-        print('date:',date)
+        print('date:', date)
         for n, coo in resort_list.items():
             self.cur.execute("INSERT INTO data(datetime, resort, data) VALUES(?,?,?)",
                              (date, n, str(req_resort_datas(coo))))

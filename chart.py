@@ -3,12 +3,13 @@ from io import BytesIO
 
 from aiogram import types
 
-from data import resort_list
-from utils import req_resort_datas
+from classes import DataBase
 
 
 def get_picture(name_resort: str = 'Аджигардак'):
-    df = req_resort_datas(resort_list.get(name_resort))
+    database = DataBase()
+    df = database.resort_data(name_resort)
+    database.close()
 
     date = df['time']
     temp_min = df['temperature_2m_min']

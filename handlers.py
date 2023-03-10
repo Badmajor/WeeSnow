@@ -2,7 +2,7 @@ from aiogram import Router
 from aiogram.exceptions import TelegramBadRequest
 from aiogram.filters import Text
 from aiogram.filters.command import Command
-from aiogram.types import Message, CallbackQuery, FSInputFile
+from aiogram.types import Message, CallbackQuery
 
 from callback_data import ResortCallbackFactory
 from chart import get_picture
