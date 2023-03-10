@@ -6,7 +6,7 @@ from aiogram import types
 from classes import DataBase
 
 
-def get_picture(name_resort: str = 'Аджигардак'):
+async def get_picture(name_resort: str = 'Аджигардак'):
     database = DataBase()
     df = database.resort_data(name_resort)
     database.close()
