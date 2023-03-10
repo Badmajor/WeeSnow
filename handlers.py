@@ -13,7 +13,7 @@ from utils import get_top_resort, get_list_resort
 async def cmd_start(message: Message):
     await message.answer('Привет, ты можешь посмотреть топ по снегу '
                          'или выбрать ГЛК',
-                         reply_markup=await start_kb())
+                         reply_markup=start_kb())
 
 
 async def show_top_resort(call: CallbackQuery):
