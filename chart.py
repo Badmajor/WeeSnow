@@ -8,8 +8,8 @@ from classes import DataBase
 
 async def get_picture(name_resort: str = 'Аджигардак'):
     database = DataBase()
-    df = database.resort_data(name_resort)
-    database.close()
+    df = await database.resort_data(name_resort)
+    await database.close()
 
     date = df['time']
     temp_min = df['temperature_2m_min']

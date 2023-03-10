@@ -8,9 +8,10 @@ async def get_top_resort() -> dict:
     database = DataBase()
     dict_resort = {}
     for n, coo in resort_list.items():
-        snowfall = sum(database.resort_data(n).get('snowfall_sum'))
+        res_data = await database.resort_data(n)
+        snowfall = sum(res_data.get('snowfall_sum'))
         dict_resort[n] = snowfall
-    database.close()
+    await database.close()
     return dict(sorted(dict_resort.items(), key=itemgetter(1), reverse=True)[:4])
 
 
@@ -18,7 +19,8 @@ async def get_list_resort() -> dict:
     database = DataBase()
     dict_resort = {}
     for n, coo in resort_list.items():
-        snowfall = sum(database.resort_data(n).get('snowfall_sum'))
+        res_data = await database.resort_data(n)
+        snowfall = sum(res_data .get('snowfall_sum'))
         dict_resort[n] = snowfall
-    database.close()
+    await database.close()
     return dict_resort

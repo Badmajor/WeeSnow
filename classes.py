@@ -24,7 +24,7 @@ class DataBase:
         self.data = self.cur.execute("CREATE TABLE IF NOT EXISTS data(datetime TEXT, resort TEXT, data TEXT)")
         self.conn.commit()
 
-    def last_update(self) -> bool:
+    async def last_update(self) -> bool:
         """Проверяет прошло ли 3 часа с прошлого обновления, возвращает True - если прошло"""
         # получаем из базы
         try:
@@ -36,7 +36,7 @@ class DataBase:
             print('Ошибка:', ex)
             return True
 
-    def update_data(self):
+    async def update_data(self):
         self.cur.execute("DELETE FROM data")
         date = curr_date.strftime('%y-%m-%d %H:%M:%S')
         print('date:', date)
@@ -45,15 +45,15 @@ class DataBase:
                              (date, n, str(await req_resort_datas(coo))))
         self.conn.commit()
 
-    def resort_data(self, resort: str):
+    async def resort_data(self, resort: str):
         """Возвращает данные ГЛК по названию"""
         if self.last_update():
             print('lastupdate:', True)
-            self.update_data()
+            await self.update_data()
         self.cur.execute("SELECT * FROM data WHERE resort = ?", (resort,))
         ans_str = self.cur.fetchone()[2]
         ans_dict = json.loads(ans_str.replace("'", '"'))
         return ans_dict
 
-    def close(self):
+    async def close(self):
         self.conn.close()
