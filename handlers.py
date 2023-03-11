@@ -39,7 +39,7 @@ async def show_list_resort(call: CallbackQuery):
 async def show_chart_resort(call: CallbackQuery, callback_data: ResortCallbackFactory):
     resort_name = callback_data.resort_name
     await call.message.answer_photo(await get_picture(resort_name),
-                                    reply_markup=await start_kb())
+                                    reply_markup=start_kb())
 
 
 def register_routers(router: Router):

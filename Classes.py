@@ -47,7 +47,7 @@ class DataBase:
 
     async def resort_data(self, resort: str):
         """Возвращает данные ГЛК по названию"""
-        if self.last_update():
+        if await self.last_update():
             print('lastupdate:', True)
             await self.update_data()
         self.cur.execute("SELECT * FROM data WHERE resort = ?", (resort,))

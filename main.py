@@ -20,7 +20,11 @@ async def main():
     dp = Dispatcher()
     dp.include_router(router)
 
-    await bot.set_webhook(
+    await bot.delete_webhook()
+
+    await dp.start_polling(bot, allowed_updates=dp.resolve_used_update_types())
+
+    """await bot.set_webhook(
         url=WEBHOOK_HOST + WEBHOOK_PATH,
         drop_pending_updates=True,
         allowed_updates=dp.resolve_used_update_types()
@@ -34,7 +38,7 @@ async def main():
 
     # Running it forever
     await asyncio.Event().wait()
-    await bot.session.close()
+    await bot.session.close()"""
 
 if __name__ == "__main__":
     asyncio.run(main())
