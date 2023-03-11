@@ -23,7 +23,7 @@ async def main():
         drop_pending_updates=True,
         allowed_updates=dp.resolve_used_update_types()
     )
-    #await bot.session.close()
+    await bot.session.close()
 
 
 if __name__ == "__main__":
