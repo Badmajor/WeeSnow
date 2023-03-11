@@ -34,6 +34,7 @@ async def main():
 
     # Running it forever
     await asyncio.Event().wait()
+    await bot.session.close()
 
 if __name__ == "__main__":
     asyncio.run(main())
