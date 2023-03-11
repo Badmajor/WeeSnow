@@ -1,7 +1,6 @@
-asyncio~=3.4.3
-aiogram~=3.0.0b6
-config~=0.5.0.post0
-matplotlib~=3.4.3
-environs~=9.3.3
-requests~=2.25.1
-aiohttp~=3.8.4
+asyncio==3.4.3
+aiogram==3.0.0b6
+config==0.5.0.post0
+matplotlib==3.4.3
+environs==9.3.3
+requests==2.25.1
