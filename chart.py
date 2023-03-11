@@ -5,6 +5,8 @@ from aiogram import types
 
 from Classes import DataBase
 
+plt.set_loglevel('WARNING')
+
 
 async def get_picture(name_resort: str = 'Аджигардак'):
     database = DataBase()
