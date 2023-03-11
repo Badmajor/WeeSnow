@@ -17,15 +17,17 @@ async def get_picture(name_resort: str = 'Аджигардак'):
     temp_min = df['temperature_2m_min']
     snowfall = df['snowfall_sum']
 
-    fig = plt.figure(figsize=(16, 10), dpi=80)
-    grid = plt.GridSpec(2, 6)
+    fig = plt.figure(figsize=(15, 10), dpi=80)
 
-    ax_main = fig.add_subplot(grid[:-1, :-1])
-    ax_bottom = fig.add_subplot(grid[-1, 0:-1])
+    ax_main = fig.add_subplot(2, 1, 1)
+    ax_bottom = fig.add_subplot(2, 1, 2)
 
     ax_main.set(title='Температура, С')
     ax_bottom.set(title='Снег , см')
+    ax_bottom.set_ylim([0, 50])
 
+    ax_main.grid()
+    ax_bottom.grid()
     ax_main.plot(date, temp_min)
     ax_bottom.bar(date, snowfall)
 
