@@ -18,11 +18,7 @@ async def main():
     dp = Dispatcher()
     dp.include_router(router)
 
-    await bot.set_webhook(
-        url=WEBHOOK_HOST + WEBHOOK_PATH,
-        drop_pending_updates=True,
-        allowed_updates=dp.resolve_used_update_types()
-    )
+    await dp.start_polling(bot, allowed_updates=dp.resolve_used_update_types())
     await bot.session.close()
 
 
